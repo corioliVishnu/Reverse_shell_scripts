@@ -1,7 +1,7 @@
 #!/bin/bash
 ## Note : Replace 127.0.0.1 with your machine's IP#########
 
-###Script for spawning a shell############
+###########Script to spawn a shell############
 python3 -c 'import pty;pty.spawn("/bin/bash")'
 
 if command -v python > /dev/null 2>&1; then
